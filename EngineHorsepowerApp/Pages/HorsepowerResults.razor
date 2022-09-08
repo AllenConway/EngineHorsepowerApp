@@ -1,0 +1,45 @@
+﻿@page "/horsepower-results"
+
+<PageTitle>Horsepower Results</PageTitle>
+
+<h3 class="top20">@title</h3>
+
+<p>The following table has all logged horsepower calculation results</p>
+
+@if (automobileData == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Rear Wheel Horsepower</th>
+                <th>Flywheel Horsepower</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var auto in automobileData)
+            {
+                <tr>
+                    <td>@auto.Year</td>
+                    <td>@auto.Make</td>
+                    <td>@auto.Model</td>
+                    @if (auto.Horsepower != null)
+                    {
+                        <td>
+                            @auto.Horsepower.RearWheelHorsepower
+                        </td>
+                        <td>
+                            @auto.Horsepower.FlywheelHorsepower
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}

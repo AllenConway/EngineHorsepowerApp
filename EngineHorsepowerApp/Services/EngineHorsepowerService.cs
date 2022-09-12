@@ -6,9 +6,6 @@ namespace EngineHorsepowerApp.Services
     {
         public Horsepower CalculateEngineHorsepower(Calculations calculations)
         {
-
-            
-            // double hpCalc = 0.0;
             var rwHorsepower = 0.0;
 
             var hpCalc = calculations.EstimatedTime / 5.825;
@@ -18,10 +15,6 @@ namespace EngineHorsepowerApp.Services
                 double weight = calculations.Weight.Value;
                 rwHorsepower = Math.Round(weight / Math.Pow(hp, 3));
             }
-            
-
-                
-            
 
             //15 percent drivetrain loss on wheel and increase at flywheel (engine horsepower)
             var flywheelHP = (rwHorsepower * 1.146);
